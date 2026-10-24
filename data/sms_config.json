@@ -1,0 +1,12 @@
+{
+  "providerName": "MiahSMS",
+  "apiUrl": "https://miahsms.com/bot/",
+  "apiKey": "MIAHSMS_F3A90FCB43BDB385B858FE36",
+  "serviceCode": "fb",
+  "countryCode": "187",
+  "status": "ONLINE",
+  "lastTestedAt": "2026-10-21T07:55:31.307Z",
+  "lastBalance": "0.0000 USDT (≈ ৳0.00 BDT)",
+  "lastPingMs": 473,
+  "lastError": null
+}

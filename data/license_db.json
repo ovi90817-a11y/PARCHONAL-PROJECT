@@ -1,0 +1,190 @@
+{
+  "licenses": [
+    {
+      "id": "lic_1792669371252_e646bd",
+      "keyHash": "3457c4b31862f234bd9c6edd89f22a76a36eda62a6f0e434b53fb7bd2db981bb",
+      "keyMask": "OXYZ-****-****-7QEC",
+      "duration": "30d",
+      "durationDays": 30,
+      "maxDevices": 5,
+      "status": "ACTIVATED",
+      "createdAt": "2026-10-22T11:42:51.252Z",
+      "activatedAt": "2026-10-22T11:43:02.494Z",
+      "expiresAt": "2026-11-21T11:43:02.494Z",
+      "revokedAt": null,
+      "revocationReason": null,
+      "activationCount": 1,
+      "note": "Available key for member activation",
+      "assignedMemberId": "mobile_user_01"
+    },
+    {
+      "id": "lic_1792418465674_dfe352",
+      "keyHash": "634a7117b990fbc378cf25d30ed204b856e5b4505b8a5fb861d58356dbafbce7",
+      "keyMask": "OXYZ-****-****-36D2",
+      "duration": "30d",
+      "durationDays": 30,
+      "maxDevices": 2,
+      "status": "ACTIVATED",
+      "createdAt": "2026-10-19T14:01:05.674Z",
+      "activatedAt": "2026-10-19T14:01:05.681Z",
+      "expiresAt": "2026-11-18T14:01:05.681Z",
+      "revokedAt": null,
+      "revocationReason": null,
+      "activationCount": 1,
+      "note": "Verification test",
+      "assignedMemberId": "member_alpha"
+    },
+    {
+      "id": "lic_1792418460691_c5023f",
+      "keyHash": "cae9d0a85e9b2c5b678d88b9a92ad21c55940b7ccd12a80b26264a2cb0374f5b",
+      "keyMask": "OXYZ-****-****-CPN7",
+      "duration": "30d",
+      "durationDays": 30,
+      "maxDevices": 2,
+      "status": "ACTIVATED",
+      "createdAt": "2026-10-19T14:01:00.691Z",
+      "activatedAt": "2026-10-19T14:01:00.699Z",
+      "expiresAt": "2026-11-18T14:01:00.699Z",
+      "revokedAt": null,
+      "revocationReason": null,
+      "activationCount": 1,
+      "note": "Verification test",
+      "assignedMemberId": "member_alpha"
+    }
+  ],
+  "deviceActivations": [
+    {
+      "id": "dev_1792418460699_d8a1ef",
+      "licenseId": "lic_1792418460691_c5023f",
+      "licenseMask": "OXYZ-****-****-CPN7",
+      "memberId": "member_alpha",
+      "installationId": "inst_test_998822",
+      "deviceFingerprint": "Chrome-Linux-Test",
+      "ipAddress": "127.0.0.1",
+      "status": "ACTIVE",
+      "activatedAt": "2026-10-19T14:01:00.699Z",
+      "expiresAt": "2026-11-18T14:01:00.699Z",
+      "lastValidatedAt": "2026-10-19T14:01:00.699Z"
+    },
+    {
+      "id": "dev_1792418465681_ec0585",
+      "licenseId": "lic_1792418465674_dfe352",
+      "licenseMask": "OXYZ-****-****-36D2",
+      "memberId": "member_alpha",
+      "installationId": "inst_test_998822",
+      "deviceFingerprint": "Chrome-Linux-Test",
+      "ipAddress": "127.0.0.1",
+      "status": "ACTIVE",
+      "activatedAt": "2026-10-19T14:01:05.681Z",
+      "expiresAt": "2026-11-18T14:01:05.681Z",
+      "lastValidatedAt": "2026-10-22T11:35:51.313Z"
+    },
+    {
+      "id": "dev_1792669382495_403b54",
+      "licenseId": "lic_1792669371252_e646bd",
+      "licenseMask": "OXYZ-****-****-7QEC",
+      "memberId": "mobile_user_01",
+      "installationId": "dev_mobile_test_456",
+      "deviceFingerprint": "iPhone-Safari",
+      "deviceInfo": {
+        "browser": "Safari",
+        "os": "iOS"
+      },
+      "ipAddress": "127.0.0.1",
+      "status": "ACTIVE",
+      "activatedAt": "2026-10-22T11:43:02.494Z",
+      "expiresAt": "2026-11-21T11:43:02.494Z",
+      "lastValidatedAt": "2026-10-22T11:43:31.311Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log_1792669382495_738822",
+      "timestamp": "2026-10-22T11:43:02.495Z",
+      "action": "KEY_ACTIVATED",
+      "actor": "mobile_user_01",
+      "target": "lic_1792669371252_e646bd",
+      "details": "Key OXYZ-****-****-7QEC activated on device dev_mobile (Duration: 30d)",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "log_1792669371252_40cbb3",
+      "timestamp": "2026-10-22T11:42:51.252Z",
+      "action": "KEY_GENERATED",
+      "actor": "oxz_kira99",
+      "target": "lic_1792669371252_e646bd",
+      "details": "Generated 30d key (5 device max) with mask OXYZ-****-****-7QEC. Note: Available key for member activation",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "log_1792595958720_c08ee5",
+      "timestamp": "2026-10-21T15:19:18.720Z",
+      "action": "KEY_REVOKED",
+      "actor": "oxz_kira99",
+      "target": "lic_1792595954573_e75d2e",
+      "details": "Permanently deleted license key OXYZ-****-****-4752 (1d)",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "log_1792595954573_9fa9a2",
+      "timestamp": "2026-10-21T15:19:14.573Z",
+      "action": "KEY_GENERATED",
+      "actor": "oxz_kira99",
+      "target": "lic_1792595954573_e75d2e",
+      "details": "Generated 1d key (1 device max) with mask OXYZ-****-****-4752. Note: Test delete",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "log_1792418465681_a82878",
+      "timestamp": "2026-10-19T14:01:05.681Z",
+      "action": "KEY_ACTIVATED",
+      "actor": "member_alpha",
+      "target": "lic_1792418465674_dfe352",
+      "details": "Key OXYZ-****-****-36D2 activated on device inst_test_ (Duration: 30d)",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "log_1792418465674_c4b91f",
+      "timestamp": "2026-10-19T14:01:05.674Z",
+      "action": "KEY_GENERATED",
+      "actor": "oxz_kira99",
+      "target": "lic_1792418465674_dfe352",
+      "details": "Generated 30d key (2 device max) with mask OXYZ-****-****-36D2. Note: Verification test",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "log_1792418460700_1b8eda",
+      "timestamp": "2026-10-19T14:01:00.700Z",
+      "action": "KEY_ACTIVATED",
+      "actor": "member_alpha",
+      "target": "lic_1792418460691_c5023f",
+      "details": "Key OXYZ-****-****-CPN7 activated on device inst_test_ (Duration: 30d)",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "log_1792418460691_3b85a9",
+      "timestamp": "2026-10-19T14:01:00.692Z",
+      "action": "KEY_GENERATED",
+      "actor": "oxz_kira99",
+      "target": "lic_1792418460691_c5023f",
+      "details": "Generated 30d key (2 device max) with mask OXYZ-****-****-CPN7. Note: Verification test",
+      "ip": "127.0.0.1"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_1792418460699",
+      "memberId": "member_alpha",
+      "activeLicenseId": "lic_1792418465674_dfe352",
+      "createdAt": "2026-10-19T14:01:00.699Z",
+      "lastSeenAt": "2026-10-19T14:01:05.681Z"
+    },
+    {
+      "id": "usr_1792669382495",
+      "memberId": "mobile_user_01",
+      "activeLicenseId": "lic_1792669371252_e646bd",
+      "createdAt": "2026-10-22T11:43:02.494Z",
+      "lastSeenAt": "2026-10-22T11:43:02.494Z"
+    }
+  ]
+}

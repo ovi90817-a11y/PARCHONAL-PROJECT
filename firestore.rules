@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny all access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        request.auth.token.email == 'ovi90817@gmail.com'
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow create, update: if isSignedIn() && request.auth.uid == userId;
+      allow delete: if isAdmin();
+    }
+
+    // Licenses Collection - Strictly Admin Only (Never revealed to ordinary members)
+    match /licenses/{licenseId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Device Activations Collection
+    match /deviceActivations/{activationId} {
+      allow read: if isSignedIn() && (resource.data.memberId == request.auth.uid || isAdmin());
+      allow write: if isAdmin();
+    }
+
+    // Audit Logs Collection - Admin read only, append-only via server
+    match /auditLogs/{logId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+  }
+}

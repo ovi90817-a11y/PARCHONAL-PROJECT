@@ -1,0 +1,88 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with license relationship",
+      "type": "object",
+      "properties": {
+        "memberId": { "type": "string", "maxLength": 64 },
+        "activeLicenseId": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "maxLength": 40 },
+        "lastSeenAt": { "type": "string", "maxLength": 40 }
+      },
+      "required": ["memberId", "createdAt", "lastSeenAt"]
+    },
+    "License": {
+      "title": "License",
+      "description": "Admin generated license key metadata with SHA-256 hash",
+      "type": "object",
+      "properties": {
+        "keyHash": { "type": "string", "maxLength": 64 },
+        "keyMask": { "type": "string", "maxLength": 32 },
+        "duration": { "type": "string", "enum": ["1d", "7d", "30d", "lifetime"] },
+        "durationDays": { "type": "number" },
+        "maxDevices": { "type": "number" },
+        "status": { "type": "string", "enum": ["AVAILABLE", "ACTIVATED", "EXPIRED", "REVOKED"] },
+        "createdAt": { "type": "string", "maxLength": 40 },
+        "activatedAt": { "type": "string", "maxLength": 40 },
+        "expiresAt": { "type": "string", "maxLength": 40 },
+        "revokedAt": { "type": "string", "maxLength": 40 },
+        "revocationReason": { "type": "string", "maxLength": 200 },
+        "activationCount": { "type": "number" },
+        "note": { "type": "string", "maxLength": 200 },
+        "assignedMemberId": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["keyHash", "keyMask", "duration", "maxDevices", "status", "createdAt", "activationCount"]
+    },
+    "DeviceActivation": {
+      "title": "DeviceActivation",
+      "description": "Registered device hardware and installation session record",
+      "type": "object",
+      "properties": {
+        "licenseId": { "type": "string", "maxLength": 64 },
+        "licenseMask": { "type": "string", "maxLength": 32 },
+        "memberId": { "type": "string", "maxLength": 64 },
+        "installationId": { "type": "string", "maxLength": 128 },
+        "deviceFingerprint": { "type": "string", "maxLength": 256 },
+        "ipAddress": { "type": "string", "maxLength": 64 },
+        "status": { "type": "string", "enum": ["ACTIVE", "SUSPENDED", "REVOKED", "DEACTIVATED"] },
+        "activatedAt": { "type": "string", "maxLength": 40 },
+        "expiresAt": { "type": "string", "maxLength": 40 },
+        "lastValidatedAt": { "type": "string", "maxLength": 40 }
+      },
+      "required": ["licenseId", "installationId", "status", "activatedAt", "lastValidatedAt"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Immutable security and access audit trail",
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string", "maxLength": 40 },
+        "action": { "type": "string", "maxLength": 64 },
+        "actor": { "type": "string", "maxLength": 64 },
+        "target": { "type": "string", "maxLength": 64 },
+        "details": { "type": "string", "maxLength": 500 },
+        "ip": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["timestamp", "action", "actor", "target"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Registered member profiles"
+    },
+    "/licenses/{licenseId}": {
+      "schema": "License",
+      "description": "Cryptographically hashed license records managed by admin"
+    },
+    "/deviceActivations/{activationId}": {
+      "schema": "DeviceActivation",
+      "description": "Device registrations associated with licenses"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "AuditLog",
+      "description": "System audit and security event history"
+    }
+  }
+}
